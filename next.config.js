@@ -22,5 +22,4 @@ const nextConfig = {
   }
 }
 
-// Export without PWA for now to avoid dependency issues during first build
 module.exports = nextConfig
