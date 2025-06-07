@@ -1,60 +1,26 @@
-# Dependencies
-node_modules/
-.pnp
-.pnp.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  basePath: '/radico-field-pwa',
+  assetPrefix: '/radico-field-pwa',
+  images: {
+    unoptimized: true
+  },
+  distDir: 'out',
+  env: {
+    NEXT_PUBLIC_GOOGLE_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+    NEXT_PUBLIC_MASTER_SHEET_ID: '1pRz9CgOoamTrfpnmF-XuBCg9IZON9br5avgRlKYtxM',
+    NEXT_PUBLIC_VISIT_SHEET_ID: '1XG4c_Lrpk-YglTq3G3ZY9Qjt7wSnUq0UZWDSYT61eWE',
+    NEXT_PUBLIC_HISTORICAL_SHEET_ID: '1yXzEYHJeHlETrEmU4TZ9F2_qv4OE10N4DPdYX0Iqfx0',
+  },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuild: false,
+  }
+}
 
-# Production builds
-/build
-/dist
-/out
-.next/
-
-# Environment variables (keep these secure!)
-.env*.local
-.env
-
-# Debug logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# IDEs and editors
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# PWA generated files
-public/sw.js
-public/workbox-*.js
-public/worker-*.js
-public/fallback-*.js
-
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
-
-# Testing
-/coverage
-/.nyc_output
-
-# Temporary folders
-tmp/
-temp/
+// Export without PWA for now to avoid dependency issues during first build
+module.exports = nextConfig
